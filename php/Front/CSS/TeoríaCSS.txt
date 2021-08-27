@@ -1,0 +1,64 @@
+recursos
+
+mozilla.developer
+w3schools
+stackoverflow
+
+________________________
+
+Introduccion
+
+CSS es un lenguaje hojas de estilos en Cascada
+
+Las instrucciones se ejecutan de arriba hacia abajo, esto quiere decir que si hay dos instrucciones para el mismo elemento, el ultimo pisará al primero
+
+Para comentarios en CSS se usa /*aquí va el comentario */  para comentarios de bloque.
+
+________________________
+
+Maneras de insertar CSS en HTML
+
+Buena práctica: CSS fuera del html
+-----------
+1) Internamente:
+<style></style>
+
+Va en el head! como meta data (meta data se refiere a las configuraciones del documento)
+
+sintaxis:
+    selector(es) {
+        propiedad: valor;
+    }
+
+<style>
+    h1 {
+        color: red;
+    }
+</style>
+
+-----------
+2) En el elemento:
+    <h1 style="color: cyan;"></h1>
+    misma sintaxis.
+-----------
+
+3) Fuera del html:
+    Crear una carpera css en la misma direccion del index.html
+
+    En el html, dentro del head, se usa la etiqueta <link rel="stylesheet" href="">
+
+    y dentro de la carpeta css se crea un archivo style.css con los estilos que queramos aplicar en el html
+
+    h1 {
+        color: cyan;
+    }
+
+    Asi dentro del html escribimos:
+    <link rel="stylesheet" href="css/style.css">
+
+    rel se refiere al tipo de archivo
+    href se refiere a la ruta donde está el archivo
+
+
+
+

@@ -1,0 +1,75 @@
+Dentro de la directorio/carpeta donde quieras iniciarlo
+
+git init
+
+__________
+configuración de usuario y contraseña del git
+
+	git config --global user.email "you@example.com"
+	git config --global user.name "Your Name"
+
+	git config user.email 
+		para visualizarlo	 	
+  	git config user.name 
+		para visualizarlo
+  __________
+
+git status 
+
+	Muestra la rama en la que estás y el estado actual del repositorio
+
+git add 
+	
+	Para agregar archivos y carpetas al stage (para que git los siga)
+	carpetas terminan en / y los archivos terminan con su extension (.txt .doc ...)
+
+git add . 
+	Agregar todos los archivos que estén en la carpeta
+
+git rm --cached <files..> 
+	para remover del stage
+	usar -r para quitar carpetas (git rm --cached -r <files..> )
+
+
+Antes de hacer commit hacer git add y git status para verificar que tenemos todo lo que queremos versionar
+
+git commit -m "breve descripción de los cambios"
+
+	Para crear una nueva version. -m para poder agregar el mensaje y el mensaje debe ser breve, referente a los cambios realizados"
+
+git log
+
+	para ver los commit hechos
+		commitID
+		author
+		date
+			message
+
+git log --oneline 
+	muestra los commits resumidos
+	commitID (rama) <mensaje>
+
+
+subir a github
+…or push an existing repository from the command line
+git remote add origin https://github.com/clotib/COM2162.git
+git branch -M main
+git push -u origin main
+
+ git pull origin main 
+	para traer lo que está en el github
+
+git push origin master
+	para subir al github
+
+------------------------
+recuerdes primero hacen git add . 
+luego git status para verificar que los cambios esten en stage,
+git commit -m "mensaje"
+git log para ver los commits realizados
+una vez que creen el repositorio remoto publico, deben hacer ->
+git remote add origin <aca la url de su repositorio>
+finalmente hacen git pull origin main
+[y git push origin main
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <h1>Formulario</h1>
+    <!-- Para juntar/recolectar información/datos.. cargar datos -->
+    <!-- label para los nombres de los campos -->
+
+    <a href="index.html">Inicio </a>
+    <a href="galeria.html">Galería </a>
+    <a href="quienes_somos.html">Quienes Somos </a>
+    <a href="formulario.html">Contactanos </form></a>
+    <a href="indexTP.html">Sobre mi</a>
+    <a href="clases.html" target="_blank">Clases </a>
+
+    <form action="#" method="GET">
+        <!-- atr method es la manera en la que se envía los datos. Get por defecto y para traer datos
+             y POST cuando son datos privados, para almacenar -->
+        <!--<form action="baseDatos.php">  -->
+        <!-- atributo action para indicar a donde enviar la info del formulario -->
+        <label>Nombre</label>
+        <!-- atr for="" para vincular con el input correspondiente-->
+        <input type="text" name="fname" placeholder="Nombre" value="miNombre">
+        <!-- atr name="" para el nombre con el que viajará el dato -->
+        <!-- atributo value para llenar con datos default/por defecto, mayormente de una base de datos -->
+        <!-- atr disabled para desactivar el campo. No permite modificarlo -->
+        <br>
+        <label>Apellido</label>
+        <input type="text" name="lname">
+        <br>
+        <label>Correo</label>
+        <input type="email" placeholder="@mipagina.com">
+        <br>
+        <label>Password</label>
+        <input type="password" placeholder="pass">
+        <br>
+        <!-- otros tipos -->
+        <label>Fecha Nacimiento</label>
+        <!-- <input type="text" placeholder="dd/mm/aaaa"> -->
+        <input type="date">
+        <label>Edad</label>
+        <input type="number">
+
+        <!--  -->
+        <br>
+        <!-- ctrl+space para los atajos del atributo -->
+        <input type="submit">
+        <input type="reset">
+
+    </form>
+
+</body>
+
+</html>
