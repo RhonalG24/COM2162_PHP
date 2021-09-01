@@ -1,0 +1,194 @@
+recursos
+
+mozilla.developer
+w3schools
+stackoverflow
+
+________________________
+
+Introduccion
+
+CSS es un lenguaje hojas de estilos en Cascada
+
+Las instrucciones se ejecutan de arriba hacia abajo, esto quiere decir que si hay dos instrucciones para el mismo elemento, el ultimo pisará al primero
+
+Para comentarios en CSS se usa /*aquí va el comentario */  para comentarios de bloque.
+
+________________________
+
+Maneras de insertar CSS en HTML
+
+Buena práctica: CSS fuera del html
+-----------
+1) Internamente:
+<style></style>
+
+Va en el head! como meta data (meta data se refiere a las configuraciones del documento)
+
+sintaxis:
+    selector(es) {
+        propiedad: valor;
+    }
+
+<style>
+    h1 {
+        color: red;
+    }
+</style>
+
+-----------
+2) En el elemento:
+    <h1 style="color: cyan;"></h1>
+    misma sintaxis.
+-----------
+
+3) Fuera del html:
+    Crear una carpera css en la misma direccion del index.html
+
+    En el html, dentro del head, se usa la etiqueta <link rel="stylesheet" href="">
+
+    y dentro de la carpeta css se crea un archivo style.css con los estilos que queramos aplicar en el html
+
+    h1 {
+        color: cyan;
+    }
+
+    Asi dentro del html escribimos:
+    <link rel="stylesheet" href="css/style.css">
+
+    rel se refiere al tipo de archivo
+    href se refiere a la ruta donde está el archivo
+-----------------------------------------------
+
+DOM (Document Object Model)
+Cada navegador interpreta el DOM a su manera
+    
+Union de nodos (Arbol de nodos)
+    HTML    
+        head
+            title
+            style  
+        body
+            h1
+            p
+
+Rutas:
+    rutas Absolutas
+        c//:Archivos de programas/...
+    rutas relativas (accediento desde la misma carpeta)
+        ./css/style.css
+        si la carpeta esta mas arriba, se regresa una carpeta haciendo ../
+-----------------------------------------------
+Atributos ID y CLASS
+    CLASS: representan elementos que pertenecen a una clase concreta
+
+    <div class="mi-clase"></div>
+        div con la clase mi-clase
+    <div class="mi-clase seleccionable"></div>
+        div con dos clases (mi-clase y seleccionable)
+
+
+    ID: identificador de un elemento
+        <div id="mi-id"></div>
+-----------------------------------------------
+CSS Selectores: se utilizan para identificar y seleccionar uno o mas elementos del DOM
+
+    Debemos saber a que nodo queremos cambiarle el estilo
+    id -> se usa #
+        html -> <p id="exampleSelect1"></p>
+        css -> #exampleSelect1
+    clase -> se usa .
+        html -> <p class="thisIsAClass"></p>
+        css -> .thisIsAClass
+
+Prioridad de Selectores
+    Inline styles
+    #
+    .
+    element
+
+-----------------------------------------------
+HTML5 > Etiquetas semanticas
+    header - Cabecera principal de la pagina
+    nav - Apartado de navegacion (enlaces, categorias, etc)
+    //main - contenido principal de un documento
+    section - seccion de un documento, seccion de la pagina
+        header
+        article - representa un articulo dentro de la pagina, como varios post dentro de una articulo
+        footer
+    aside
+    footer
+
+    Describen claramente su significado tanto para el navegador, motores de busqueda y para el desarrollador
+
+-----------------------------------------------
+Otros contenedores:
+    div - contenedor de bloque. Crear secciones o agrupar contenidos. Tiene etiqueta de apertura y cierre.
+
+    span - contenedor en linea, crea una caja en linea. Un uso es darle formato a una parte del texto o a algun elemento en linea. Tiene etiqueta de apertura y cierre.
+
+
+-----------------------------------------------
+CSS LAYOUT (manera de trabajar los elementos)
+div {
+    display: block;
+    display: inline-block;
+    display: inline;
+    display: none;
+}
+
+display: block  
+    Ocupa todo el espacio que pueda por defecto.
+    si tiene width = 60%, ocupa solo el 60%
+
+inline: 
+    No se cambia ni el alto ni el ancho. El elemento ocupara lo que ocupe el contenido
+
+inline-block: 
+    combina las propiedades de los dos anteriores
+
+none: 
+    oculto. no se muestra ni ocupa espacio en la pagina.
+
+atajos
+    escribo 
+        div.nombreClase + TAB //asi se crea la estructura del div con la clase desarrollador
+
+        div#identificador + TAB //para crearlo con el atr identificador
+-----------------------------------------------
+
+:hover 
+    se usa para añadir estilo cuando el curso este encima del elemento
+
+(en CSS)
+    .seleccionable:hover {
+        background-color: white;
+        color: black;
+    }    
+
+-----------------------------------------------
+
+Modelo de caja
+margin - espacio entre el borde y la zona exterior del elemento
+border - borde del elemento
+padding - espacio entre el borde y el contenido del elemento
+
+    margin
+        border
+            padding [element]
+
+    top 
+left   right
+  bottom
+
+medidas:
+    auto 
+    px, rem em
+    vh, vw
+    % - en relacion al ancho del contenedor
+
+
+margin: top right botton left; // 4 entradas
+margin: top|botton right|left; // 2 entradas
+margin: top right|left botton; // 3 entradas
+margin: top|right|botton|left; // 1 entrada

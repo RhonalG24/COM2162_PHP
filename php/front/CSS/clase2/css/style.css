@@ -1,0 +1,19 @@
+/* selecitor id */
+#doloresText {
+    font-style: italic;
+}
+
+/*selector de clase */
+.rojo{
+    background-color: red;
+    margin-left: 3%;
+}
+
+/*selector de elemento */
+div {
+    color: darkblue;
+}
+
+div p {
+    font-weight: bold;
+}

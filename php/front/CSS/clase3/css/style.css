@@ -1,0 +1,32 @@
+.bloque {
+    background-color: blue;
+    color: white;
+    display: block;
+    width: 50%;
+}
+
+.bloque-inline{
+    background-color: turquoise;
+    color: sienna;
+    display: inline-block;
+    width: 20%;
+}
+
+.en-linea{
+    background-color: steelblue;
+    color: red;
+    display: inline;
+    /*no coloca el color de fondo porque no permite cambiar ni alto ni ancho. html interpreta el texto como si no ocupara espacio, por ello no aplica el fondo*/
+    /* padding: 50px; */
+}
+
+.none{
+    background-color: violet;
+    color: black;
+    display: none; /*oculta el elemento de la vista*/
+}
+
+.seleccionable:hover {
+    background-color: white;
+    color: black;
+}    
