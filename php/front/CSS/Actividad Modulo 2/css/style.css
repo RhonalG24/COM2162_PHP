@@ -1,0 +1,23 @@
+html{
+    font-size: 48px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.item{
+    margin: .3rem;
+    background-color: red;
+    color: yellow;
+    height: 7rem;
+    width: 6rem;
+
+}
+.item:nth-child(2){
+    background-color: black;
+    color:white;   
+}
