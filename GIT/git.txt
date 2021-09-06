@@ -73,3 +73,34 @@ finalmente hacen git pull origin main
 [y git push origin main
 
 
+Hacemos los pasos que nos venia dando el profe, y en el pull escribimos esto:
+git pull --rebase origin main
+ahí ya vuelven a intentar:
+git push -u origin main
+Y listo!
+
+-------
+
+Error
+error: src refspec master does not match any.  
+error: failed to push some refs to 'ssh://xxxxx.com/project.git'
+
+Solution
+
+
+    Try git show-ref to see what refs you have. Is there a refs/heads/master?
+
+    Due to the recent "Replacing master with main in GitHub" action, you may notice that there is a refs/heads/main. As a result, the following command may change from git push origin HEAD:master to git push origin HEAD:main
+
+
+
+git push -u origin main -f para forzarlo
+
+
+Para subir a github
+
+git add .
+git status
+git commit -m "message"
+git pull origin main
+git push -u origin main -f

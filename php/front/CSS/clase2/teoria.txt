@@ -1,0 +1,73 @@
+DOM (Document Object Model)
+Cada navegador interpreta el DOM a su manera
+    
+Union de nodos (Arbol de nodos)
+    HTML    
+        head
+            title
+            style  
+        body
+            h1
+            p
+
+Rutas:
+    rutas Absolutas
+        c//:Archivos de programas/...
+    rutas relativas (accediento desde la misma carpeta)
+        ./css/style.css
+        si la carpeta esta mas arriba, se regresa una carpeta haciendo ../
+
+Atributos ID y CLASS
+    CLASS: representan elementos que pertenecen a una clase concreta
+    ID: 
+
+CSS Selectores: se utilizan para identificar y seleccionar uno o mas elementos del DOM
+
+    Debemos saber a que nodo queremos cambiarle el estilo
+    id -> se usa #
+        html -> <p id="exampleSelect1"></p>
+        css -> #exampleSelect1
+    clase -> se usa .
+        html -> <p class="thisIsAClass"></p>
+        css -> .thisIsAClass
+
+Prioridad de Selectores
+    Inline styles
+    #
+    .
+
+
+HTML5 > Etiquetas semanticas
+    header - Cabecera principal
+    nav - Apartado de navegacion (enlaces, categorias, etc)
+    main - 
+    section - 
+    article
+    aside
+    footer
+
+    Describen claramente su significado tanto para el navegador, motores de busqueda y para el desarrollador
+
+
+
+CSS LAYOUT (manera de trabajar los elementos)
+div {
+    display: block;
+    display: inline-block;
+    display: inline;
+    display: none;
+}
+
+display: block  
+    Ocupa todo el espacio que pueda por defecto.
+    si tiene width = 60%, ocupa solo el 60%
+
+inline: No se cambia ni el alto ni el ancho. Ocupara lo que ocupe el contenido
+
+inline-block: combina las propiedades de los dos anteriores
+
+none: oculto. no se muestra ni ocupa espacio en la pagina.
+
+
+
+    
