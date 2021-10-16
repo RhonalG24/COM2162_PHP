@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form, RadioB y CheckB</title>
+</head>
+
+<body>
+    <!-- atr de form: action="direccion.php" method="" (method http GET/POST), name="nombreFormulario" -->
+    <form action="">
+        <!-- El atr for asocia el label con el input a traves del atr id -->
+        <label for="pNombre">Nombre</label>
+        <input type="text" id="pNombre" name="pNombre">
+        <!-- el atr name es el key/nombre de variable con la que viajará la informacion -->
+        <br>
+        <h2>Radio Buttons</h2>
+        <div>
+            <h4>Selecciona tu género</h4>
+            <input type="radio" name="gender" id="male" value="masculino">
+            <label for="male">Masculino</label>
+            <input type="radio" name="gender" id="female" value="femenino">
+            <label for="female">Femenino</label>
+            <input type="radio" name="gender" id="other" value="otro">
+            <label for="other">Otro</label>
+            <!-- el atr name en este caso tambien te asocia los input con el mismo name, de manera que te permitirá seleccionar sólo una de las opciones desmarcando la anterior seleccionada -->
+        </div>
+        <br>
+        <br>
+        <h2>Checkbox Buttons</h2>
+        <div>
+            <h4>Indique su vehiculo</h4>
+            <!-- id="bike" -->
+            <input type="checkbox" id="bike" name="vehicle1" value="bicicleta">
+            <label for="bike">Bicicleta</label>
+            <input type="checkbox" id="car" name="vehicle2" value="auto">
+            <label for="car">Auto</label>
+            <input type="checkbox" id="boat" name="vehicle3" value="barco">
+            <label for="boat">Barco</label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+Javascript
+
+    Aporta dinamismo a las paginas web, funciona en complemento con los lenguajes web HTML y CSS.
+    Es un lenguaje de programación interpretado (por el navegador), NO compilado.
+
+    JS tiene sus propiasd reglas para la sintaxis, aunque respeta los estándares de los lenguajes de programación
+
+    Lo usaremos en el curso para aprender algoritmos
+
+    Algoritmos:
+        Conjunto de procedimientos o funciones que se necesitan para realizar cierta opereación o acción. Conjunto de pasos ordenados y finitos que resuelven un problema específico.
+
+    Extension:
+        <nombreArchivo>.js
+
+    Una manera de escribir código:
+        Dentro del HTML, usando la etiquera <script></script>
+        Este elemento admite la introducción de un lenguaje de programación dentro de HTML
+
+        <script>
+            //Aquí va el código    
+        </script>
+
+        En general, un script es un archivo con código.
+
+    Sintaxis:
+        No se tienen en cuenta los espacios en blanco y las nuevas líneas (Al igual que en HTML)
+        
+        Comentarios:
+            //
+            /* */
+
+        Es un lenguaje no tipado
+
+        Palabras reservadas: var, let, const, 
+
+        Variables: 
+            Espacios reservados en memoria
+
+            var : (deprec) palabra reservada para crear un variable antes del ECMAscript 5. Crea una variable global y por ello ya no se usa.
+
+            let : palabra reservada para crear una variable con un scope de bloque. Permite trabajar de una manera más limpia.
+
+            const : palabra reservada para crear una variable constante. Se usa para almacenar otro tipo de variable. 
+
+            Al ser no tipado, se puede guardar cualquier tipo de dato.
+
+            Los nombres de variables son únicos dentro del scope
+
+            Parsear (Parse):
+                Significa tomar una variable y convertirla en otro tipo de dato.
+                parseInt(); para pasar al tipo int.
+
+        Funciones predefinidas
+            Una función es un código que cumple una función.
+
+            prompt() : Muestra un mensaje (cuadro de diálogo) por pantalla y permite ingresar un dato a una variable. 
+
+            console.log() : muestra el mensaje que pasemos como parámetro a la llamada en la consola.
+
+            alert() : muestra una ventana de alerta.
+
+            typeof() : para saber el tipo de una variable
+            
+            parseInt() : convertir al tipo numérico
+
+        Inspeccionador de elementos > Consola
+            Al escribir el nombre de la variable se puede ver su valor.
+
+Clase 2 de js
+
+    Control de flujo
+
+        Condicionales
+
+            Si (if) : si la condicion es cierta devuelve true, sino, devuelve false
+
+                estructura if...else: Si es true, se ejecutan las instrucciones dentro del {...}
+                Si es false, se ejecutan lo que esta en el else {...}
+                    if(condicion){
+                        ...
+                    } else {
+                        ...
+                    }
+
+                Condiciones anidadas: if..else if..else
+                    if(edad < 12){
+                        alert("pequeño")
+                    } else if(edad < 19){
+                        alert("adolescente")
+                    } else if(edad < 35){
+                        alert("joven")
+                    } else {
+                        alert("Piensa en cuidarte un poco más")
+                    }
+
+        Operadores en JS
+            Operadores lógicos
+                Nos sirven para evaluar una condicion. Comparan los valores y devuelven un booleano   
+                && (and), || (or)
+                <, >, <=, >=, == (igual que), != (distinto), === (igual tipo incluso, estrictamente igual), !== (estrictamente distinto), ! (not)
+
+                5 == 5 //true
+                5 == "5" //true , == compara únicamente el valor
+                5 === "5" //false , compara también el tipo del valor 
+                5 !== "5" //true
+
+        Operador ternario
+            (condicion) ? true : false   
+
+            Ejemplo:
+                let mensajeMesa = (mesaDisponible) ? "Puede ser asignada." : "La mesa esta ocupada."
+
+                console.log(mensajeMesa)
+
+            Otro ejemplo
+
+                let tieneDescuento = true
+                let mensajeEntrada = "El precio de la entrada es: " + ((tieneDescuento) ? "500" : "700") + " pesos."
+
+                console.log(mensajeEntrada)
+
+            Para crear un bloque de codigo se debe poner entre parentesis y cada sentencia separada por ','
+            ejemplo con bloques de codigos
+
+                let semaforoEnVerde = true
+
+                semaforoEnVerde ? (
+                    console.log("Los autos avanzan."),
+                    console.log("Los peatones esperan.")
+                ) : (
+                    console.log("Los autos esperan."),
+                    console.log("Los peatones avanzan.")
+                )
+Clase 3 js
+
+    Funciones         
+
+    ventajas: 
+        - Ahorro de código (DRY: don't repeat yourself)
+        - Aporta ordenamiento y entendimiento al código
+        - Aporta facilidad y rapidez para hacer modificaciones
+
+    Sintaxis:
+        function nombre_funcion(parámetros) {
+            //bloque de codigo
+        }
+
+    Invocación:
+        nombre_funcion()
+
+        Ejemplo: console.log();
+
+    Parámetros
+        Se usan cuando la funcion requiere que se le pasen datos.
+
+    Ciclos(bucles)
+
+        Se usa cuando necesitamos repetir un bloque de codigo n cantidad de veces 
+
+        for
+                (variable;          condicion;     aumento del acumulador)
+            for(let miVar = 0;   miVar < cant_iteraciones;  miVar++){
+                //bloque de codigo a iterar
+            }
+
+Clase 4 JS
+    
+    Arrays
+        Son variables que contienen varios registros
+        
+        Inicializacion
+            let arrayName[]
+
+        Con datos
+             let estudiantes = ["Cesar", "Leonardo", "Laura"]
+
+        Para acceder a los datos 
+            estudiantes[1]
+                ejem: console.log(estudiantes[0])
+        
+        Poseen metodos (funciones) para trabajar con ellos:
+
+            lenght - cantidad de registros
+                estudiantes.lenght;
+
+                Para obtener la ultima posicion del array
+                console.log(estudiantes[estudiantes.lenght - 1])
+
+            push - combina dos o mas arrays. Los agrega al final del array donde se esten combinando
+                estudiantes.push("Maxi");
+
+                ahora estudiantes posee ['Cesar', 'Leonardo', 'Laura', 'Maxi']
+
+            shift - elimina el primer elemento del array    
+                estudiantes.shift()
+
+            pop - elemina el ultimo registro del array
+                estudiantes.pop()
+
+            concat - concatena dos o mas arrays en el array donde se este utilizando
+                let totalEstudiantes = estudiantes.concat(nuevosEstudiantes)
+                    retorna los valores que tenia estudiante junto a los de nuevosEstudiantes en totalEstudiantes
+
+    Propotype: los objetos son del modelo prototipo y permite el uso similar al de clase
+
+    Ciclos(bucles) (continuacion)
+
+        While - itera mientras la condicion sea cierta
+
+            Sintaxis: while(<condicion>){
+                //bloque de codigo
+            }
+
+            Ejemplo:
+                let turno = 0
+                while(turno < 10){
+                    console.log("Turno " + turno)
+                    turno++
+                }
+
+            Puede causar un bucle infinito si la condicion siempre se cumple, por ejemplo si en el anterior ejemplo no se aumenta el contador turno
+
+        Do while - ejecuta el bloque de codigo mientras se cumple la condicion. Ejecuta al menos una vez
+
+            sintaxis: 
+                do{
+                    //Bloque de codigo
+                } while(condicion)
+
+            Ejemplo: 
+                do {
+                    let edad = parseInt(prompt("cual es tu edad"))
+                }while(edad < 18)
+
+    Estructura de control Switch - Ejecuta un bloque de codigo en base a casos
+
+        sintaxis 
+            switch(<variable>){
+                case <valor>:
+                    //bloque de codigo  
+                    break
+
+                default:
+
+                    break
+            }
+
+        El break es necesario para que no siga evaluando y ejecutando los demas casos. Se puede usar en cualquier bloque de codigo para salir de este. En este caso sale del switch
+
+
+Clase 5 JS
+
+    Arrow functions (vs functions)
+
+        Funciones que se tienen en Javascript que tienen otra sintaxis y caracteristicas
+
+        sintaxis    
+            (parametros) => {bloque de codigo} //si es una sola sentencia se omiten las llaves
+
+            ejemplo:
+                version con function
+                function sumarFunction(){
+                    return 2+3
+                }
+                version Arrow
+                const sumar = () => 2+3
+                //usualmente se almacena en una variable del tipo const porque estas almacenando el funcionamiento de la funcion
+
+                alert(sumar())
+
+            otro ejemplo
+                const sumarParam = (a,b) => a+b
+
+                alert(sumarParam(2,2))
+
+        Diferencias
+            Las function se pueden llamar antes de que se inicializarlas
+            Con las arrow function hay que declararlas antes de usarlas dado que estas se guardan en variables
+
+            Esto trae la problematica de tener que declarar las funciones antes, aunque queda mucho mas organizado (no genera un codigo spaguetti)
+
+        Ventajas de arrow function
+            Podemos crear condiciones dinamicas, por ejemplo, cambiar el comportamiento de la funcion mediante un Condicional
+
+            ejemplo: sistema de pedidos en restaurante
+                let mesaDisponible = true
+                const respuestaDeMesa
+                if(mesaDisponible){
+                    respuestaDeMesa = () => "La mesa puede ser asignada"
+                }else{
+                    respuestaDeMesa = () => "La mesa esta ocupada"
+                }
+
+                console.log(respuestaDeMesa())
+
+
+    Objetos en JS
+        Es un tipo de dato que tiene propiedades y funcionalidades
+        Por ejemplo, sin objeto habria que hacer
+        let auto1Modelo = "Civic"
+        let auto1Marco = "Honda"
+        let auto1Color = "Negro"
+        
+        Con objetos seria
+
+        sintaxis literal
+
+        const auto = {
+
+    //Atributos o propiedades
+       //clave : valor
+
+            //clave : valor
+            marca : "Honda",
+            modelo : "Civic",
+            anio : "2020",
+    //Responsabilidades o Metodos
+            mostrarInfo : function(){
+                return this.modelo + " " + this.marca + " " + this.anterior
+            } 
+        }
