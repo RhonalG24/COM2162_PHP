@@ -1,0 +1,17 @@
+Servidor FTP: ftp.foxit.com.ar
+
+Nombre de usuario de FTP: c2162@cursophp.foxit.com.ar
+
+Pass: YVc[gb#cCvjp
+
+Puerto FTPS explícito de FTP &:  21
+
+https://www.youtube.com/watch?v=pBagVoYwbHQ
+
+----
+el link para ingresar desde el navegador al servidor es https://cursophp.foxit.com.ar/
+----
+
+Ventajas de conexion rapida: queda guardado
+
+Derecha: Carpetas del servidor

@@ -1,0 +1,389 @@
+Arrays
+
+    Objetos tipo lista de alto nivel. Los arrays son objetos similares a una lista cuyo prototipo proporciona métodos para efectuar operaciones de recorrido y de mutación.
+
+    Crear un Array
+
+        let frutas = ["Manzana", "Banana"]
+
+        console.log(frutas.length) // 2
+    
+    Acceso a elementos de un array
+
+    Los índices de los arrays de JavaScript comienzan en cero, es decir, el índice del primer elemento de un array es 0, y el del último elemento es igual al valor de la propiedad length del array restándole 1.
+
+    Si se utiliza un número de índice no válido, se obtendrá undefined.
+        
+        let frutas = ["Manzana", "Banana"]
+        let primero = frutas[0] // Manzana
+        let ultimo = frutas[frutas.length - 1] // Banana
+        console.log(frutas.length) // 2
+
+        console.log(decadas[0]) // funciona correctamente
+        renderizador['3d'].usarTextura(modelo, 'personaje.png')
+
+    Recorrer un Array        
+
+        frutas.forEach(function(elemento, indice, array) {
+            console.log(elemento, indice);
+        })
+
+        // Manzana 0
+        // Banana 1
+
+    Añadir un elemento al final de un Array //push()
+
+        let nuevaLongitud = frutas.push('Naranja') // Añade "Naranja" al final
+        // ["Manzana", "Banana", "Naranja"]
+
+    Eliminar el último elemento de un Array //pop()
+
+        let ultimo = frutas.pop() // Elimina "Naranja" del final
+        // ["Manzana", "Banana"]
+
+    Añadir un elemento al principio de un Array //unshift()
+
+        let nuevaLongitud = frutas.unshift('Fresa') // Añade "Fresa" al inicio
+        // ["Fresa" ,"Manzana", "Banana"]
+
+    Eliminar el primer elemento de un Array //shift()
+
+        let primero = frutas.shift() // Elimina "Fresa" del inicio
+        // ["Manzana", "Banana"]
+
+    Encontrar el índice de un elemento del Array //indexOf()
+
+        let pos = frutas.indexOf('Banana') // (pos) es la posición para abreviar
+
+        // 1
+
+    Eliminar un único o varios elementos mediante una posición
+
+        frutas.push('Pera')   // ["Manzana", "Banana", "Pera"]
+
+        let elementoEliminado = frutas.splice(pos, 1)  // ["Manzana", "Pera"]
+
+        Con .splice() no solo se puede eliminar elementos del array, si no que también podemos extraerlos guardándolo en un nuevo array. Al hacer esto estaríamos modificando el array de origen.
+
+        let vegetales = ['Repollo', 'Coliflor', 'Zapallo', 'Zanahoria']
+        console.log(vegetales) // ["Repollo", "Coliflor", "Zapallo", "Zanahoria"]
+
+        let pos = 1, numElementos = 2
+        let elementosEliminados = vegetales.splice(pos, numElementos)
+
+        // ["Coliflor", "Zapallo"] ==> Lo que se ha guardado en "elementosEliminados"
+    
+        console.log(vegetales) // ["Zapallo", "Zanahoria"] ==> Lo que actualmente tiene "vegetales"
+
+    Copiar un Array
+
+        let copiaArray = vegetales.slice(); // ["Repollo", "Zanahoria"]; ==> Copiado en "copiaArray"
+
+    Every (every no modifica el arreglo sobre el cual es llamado.)
+
+        El método every ejecuta una función callback dada una vez por cada elemento presente en el arreglo hasta encontrar uno que haga retornar un valor falso a callback. callback es llamada sólo para índices del arreglo que tengan valores asignados.
+
+        callback es llamada con tres argumetos: el valor del elemento, el índice del elemento y el objeto Array que está siendo recorrido. 
+        
+        El siguiente ejemplo prueba si todos los elementos de un arreglo son mayores que 10.
+
+            function esGrande(elemento, indice, arrreglo) {
+                return elemento >= 10;
+            }
+
+            [12, 5, 8, 130, 44].every(esGrande); // false
+
+            [12, 54, 18, 130, 44].every(esGrande); // true
+        
+        Usar funciones flecha
+
+            Las funciones flecha proveen una sintaxis más corta para la misma prueba.
+
+            [12, 5, 8, 130, 44].every(elem => elem >= 10); // false
+
+            [12, 54, 18, 130, 44].every(elem => elem >= 10); // true
+
+    Filters (no modifica el array sobre el cual es llamado)
+
+        filter() llama a la función callback sobre cada elemento del array, y construye un nuevo array con todos los valores para los cuales callback devuelve un valor verdadero. callback es invocada sólo para índices del array que tengan un valor asignado. 
+
+        El siguiente ejemplo usa filter() para crear un array filtrado que excluye todos los elementos con valores inferiores a 10.
+
+            function esGrande(elemento) {
+                return elemento >= 10;
+            }
+
+            var filtrados = [12, 5, 8, 130, 44].filter(esGrande);
+            // filtrados es [12, 130, 44]
+
+    Some() (no modifica el array con el cual fue llamada.)
+
+        some() ejecuta la función callback una vez por cada elemento presente en el array hasta que encuentre uno donde callback retorna un valor verdadero (true).
+
+        El siguiente ejemplo verifica si algún elemento del array es mayor a 10.
+
+            function masquediez(element, index, array) {
+                return element > 10;
+            }
+
+            [2, 5, 8, 1, 4].some(masquediez); // false
+            [12, 5, 8, 1, 4].some(masquediez); // true
+
+    Fácil filtrado de arreglos, mapeo, ...
+
+        var arr = [5, 6, 13, 0, 1, 18, 23];
+
+        var sum = arr.reduce((a, b) => a + b);
+
+        // 66
+
+        
+
+        var even = arr.filter(v => v % 2 == 0);
+
+        // [6, 0, 18]
+
+        
+
+        var double = arr.map(v => v * 2);
+
+        // [10, 12, 26, 0, 2, 36, 46]
+
+Objetos en JavaScript
+
+    Programación Orientada a Objetos
+
+        La programación orientada a objetos es un paradigma de programación que utiliza la abstracción para crear modelos basados ​​en el mundo real. Utiliza diversas técnicas de paradigmas previamente establecidas, incluyendo la modularidad, polimorfismo y encapsulamiento. Hoy en día, muchos lenguajes de programación (como Java, JavaScript, C#, C++, Python, PHP, Ruby y más) soportan programación orientada a objetos (POO).
+
+        La programación orientada a objetos puede considerarse como el diseño de software a través de un conjunto de objetos que cooperan, a diferencia de un punto de vista tradicional en el que un programa puede considerarse como un conjunto de funciones, o simplemente como una lista de instrucciones para la computadora. En la programación orientada a objetos, cada objeto es capaz de recibir mensajes, procesar datos y enviar mensajes a otros objetos. Cada objeto puede verse como una pequeña máquina independiente con un papel o responsabilidad definida.
+
+        POO pretende promover una mayor flexibilidad y facilidad de mantenimiento en la programación y es muy popular en la ingeniería de software a gran escala. Gracias a su fuerte énfasis en la modularidad, el código orientado a objetos está concebido para ser más fácil de desarrollar y más fácil de entender posteriormente, prestándose a un análisis más directo, a una mayor codificación y comprensión de situaciones y procedimientos complejos que otros métodos de programación menos modulares
+    
+    Objetos
+
+        Los Objetos son aquellos que tienen propiedades y comportamientos, también serán sustantivos. Pueden ser físicos o conceptuales.
+
+        Las Propiedades también pueden llamarse atributos y estos también serán sustantivos. Algunos atributos o propiedades son nombre, tamaño, forma, estado, etc. Son todas las características del objeto.
+
+        Los Comportamientos serán todas las operaciones que el objeto puede hacer, suelen ser verbos o sustantivos y verbo. Algunos ejemplos pueden ser que el usuario pueda hacer login() y logout(), hacerreporte().
+
+        Ejemplo:
+
+        Objeto: Perro
+
+            Propiedades: + nombre, + color, + raza, + altura.
+
+            Comportamientos: + ladrar, + comer, + dormir, + correr.
+
+    
+
+        Objeto #1 llamado “Pancho”:
+
+            tributo_1: color = marrón
+
+            atributo_2: tamannio = pequenio
+
+            atributo_3: raza = chiguagua
+
+            metodo_1: ladrar
+
+            metodo_2: comer
+
+            metodo_3: dormir
+
+    
+
+        Objeto #2 llamado "Carlos"
+
+            atributo_1: color = blanco
+
+            atributo_2: tamannio = grande
+
+            atributo_3: raza = hunky siberiano
+
+            metodo_1: ladrar
+
+            metodo_2: comer
+
+            metodo_3: dormir
+
+    Objetos Literales en JavaScript
+
+        Vamos a empezar a trabajar con objetos, veremos cómo declararlos, cuáles son sus ventajas, cómo asignarles atributos y cómo trabajar con ellos dentro de las funciones.
+
+        Los objetos se definen delimitados mediante llaves {}
+
+        Un atributo se compone de una clave (key) y un valor (value), que se separan entre sí por dos puntos “”:"". Los valores pueden ser de tipo string, número, booleano, etc. Cada atributo está separado del siguiente por una coma. Un objeto puede tener todos los atributos que sean necesarios.
+
+        Escribir el nombre de un objeto separado por un punto del nombre de un atributo, nos permite acceder al valor de dicho atributo para ese objeto. Un objeto también se puede pasar como atributo en una función.
+
+        Las últimas versiones de JavaScript nos permiten desglosar el objeto para acceder únicamente al atributo que nos interesa. Esto se consigue encerrando el nombre del atributo entre llaves { }.
+
+        Ejemplo de creación de un Objeto:
+
+        sintaxis:
+
+        var nombreObjeto (
+
+            atributo1: "valorString",
+
+            atributo2: "valorString",
+
+            atributo3: valornumerico,
+
+            atributo4: valorBoleano
+
+        )
+
+        
+
+        Código:
+
+        var usuario {
+
+            nombre: "carlos",
+
+            apellido: "sanchez",
+
+            edad: 25,
+
+            programador: true
+
+        }
+
+    Llamado de Atributos
+
+        como vimos en el ejemplo anterior, pudimos crear un objeto con sus respectivos atributos, para luego llamar a cada atributo en particular solo queda realizarlo de la siguiente manera:
+
+        Sintaxis:
+
+            nombreobjeto.atributo;
+
+
+        Código:
+
+            console.log(usuario.nombre);
+
+            console.log(usuario.apellido);
+
+            console.log(usuario.edad);
+
+            console.log(usuario.programador);
+
+
+Callback
+
+    Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+    Ejemplo:
+
+        function saludar(nombre) {// ←-- definición de la función
+            alert('Hola ' + nombre);
+        }
+
+        function procesarEntradaUsuario(callback) {
+            var nombre = prompt('Por favor ingresa tu nombre.');
+            callback(nombre);
+        }
+
+        procesarEntradaUsuario(saludar);// ←-- función pasada como parámetro
+
+    El ejemplo anterior es una callback sincrónica, ya que se ejecuta inmediatamente.
+
+    Sin embargo, tenga en cuenta que las callbacks a menudo se utilizan para continuar con la ejecución del código después de que se haya completado una operación asincrónica — estas se denominan devoluciones de llamada asincrónicas.
+
+Closures
+
+    Un closure es un tipo especial de objeto que combina dos cosas: una función, y el entorno en que se creó esa función. 
+
+        Ejemplo:
+            function iniciar() {
+                var nombre = "internet"; // La variable nombre es una variable local creada por iniciar.
+                function mostrarNombre() { // La función mostrarNombre es una función interna, una clausura.
+                    alert(nombre); // Usa una variable declarada en la función externa.
+                }
+                mostrarNombre();
+            }
+
+            iniciar(); 
+
+        Otro ejemplo:
+
+            function creaFunc() {
+                var nombre = "internet";
+                function muestraNombre() {
+                    alert(nombre);
+                }
+                return muestraNombre;
+            } 
+
+            var miFunc = creaFunc();
+            miFunc();
+
+            Lo que lo hace diferente es que la función externa nos ha devuelto la función interna muestraNombre() antes de ejecutarla.
+
+
+    Emulando métodos privados con closures
+
+        Aquí vemos cómo definir algunas funciones públicas que pueden acceder a variables y funciones privadas utilizando closures. A esto se le conoce también como el patrón módulo:
+
+            var Counter = (function() {
+                var privateCounter = 0;
+                function changeBy(val) {
+                    privateCounter += val;
+                }
+                return {
+                    increment: function() {
+                        changeBy(1);
+                    },
+                    decrement: function() {
+                        changeBy(-1);
+                    },
+                    value: function() {
+                        return privateCounter;
+                    }
+                }
+            })();         
+
+            alert(Counter.value()); /* Muestra 0 */
+            Counter.increment();
+            Counter.increment();
+            alert(Counter.value()); /* Muestra 2 */
+            Counter.decrement();
+            alert(Counter.value()); /* Muestra 1 */
+
+        En los ejemplos anteriores cada closure ha tenido su propio entorno; aquí creamos un único entorno compartido por tres funciones: Counter.increment, Counter.decrement y Counter.value.
+
+        podríamos almacenar esta función en una variable independiente y utilizarlo para crear varios contadores: 
+            var makeCounter = function() {
+                var privateCounter = 0;
+                function changeBy(val) {
+                    privateCounter += val;
+                }
+                return {
+                    increment: function() {
+                        changeBy(1);
+                    },
+                    decrement: function() {
+                        changeBy(-1);
+                    },
+                    value: function() {
+                        return privateCounter;
+                    }
+                }
+            };
+            
+            var Counter1 = makeCounter();
+            var Counter2 = makeCounter();
+            alert(Counter1.value()); /* Muestra 0 */
+            Counter1.increment();
+            Counter1.increment();
+            alert(Counter1.value()); /* Muestra 2 */
+            Counter1.decrement();
+            alert(Counter1.value()); /* Muestra 1 */
+            alert(Counter2.value()); /* Muestra 0 */
+
+        Tené en cuenta que cada uno de los dos contadores mantiene su independencia del otro. Su entorno durante la llamada de la función makeCounter() es diferente cada vez. La variable del closure llamada privateCounter contiene una instancia diferente cada vez.
+
+    Consideraciones de rendimiento
+
+        No es aconsejable crear innecesariamente funciones dentro de otras funciones si no se necesitan los closures para una tarea particular ya que afectará negativamente el rendimiento del script tanto en consumo de memoria como en velocidad de procesamiento.

@@ -1,0 +1,27 @@
+body{
+    background-image: url('../img/imagen-fondo.jpeg');
+}
+
+section{
+    background-color: rgba(209,208,208,.712);
+    padding: 1%;
+    box-shadow: 3px 4px 5px black;
+    border-radius: 5px  ;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulo_form{
+    font-family: 'Ballet', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.carta {
+    background-color: rgba(209,208,208,0);
+}
+
+.title{
+    text-align: center;
+}

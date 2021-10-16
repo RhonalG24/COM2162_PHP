@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- https://fonts.google.com/specimen/Ballet?query=balle -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ballet&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Landing Page</title>
+</head>
+
+<body>
+    <!-- https://getbootstrap.com/docs/5.1/utilities/spacing/ -->
+    <header>
+        <div class="container mt-5">
+            <!--main: contenido principal  -->
+            <main class="row">
+
+                <section class="col-lg-4 col-sm-12">
+                    <img class="offer_image" src="img/logo.png" alt="Logo">
+                    <h1 class="offer_title">Título de la oferta</h1>
+                    <p class="offer_description">Descripción de la oferta</p>
+                </section>
+
+                <section class="col-lg-6 col-sm-12">
+                    <h2 class="titulo_form">En memories nos preocupamos por vos</h2>
+                    <p class="description_form">Para acceder a las promociones disponibles te podes registrar</p>
+
+
+                    <form
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSfrhbs5BnYVdqfpOxzzvZ7ZFE5upoDMQw5m92dQ-F4JkjMrhw/formResponse"
+                        method="POST">
+                        <div>
+                            <label for="inputEmail">Correo</label>
+                            <input type="email" id="inputEmail" name="entry.281740146" required>
+                        </div>
+                        <div>
+                            <label for="nameInput">Nombre</label>
+                            <input type="text" name="entry.839960492" id="nameInput">
+                        </div>
+                        <div>
+                            <small class="form_legal">Al hacer click en el siguiente botón, acepta nuestros términos y
+                                condiciones de uso</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </section>
+            </main>
+
+
+        </div>
+
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="card col-lg-3 col-sm-12 m-3 bgcolorcss">
+                <img src="./img/velaRoma.jpeg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title titulo_form">Vela Roma</h5>
+                    <p class="card-text">Acá nuestra vela Roma, ideal para perfumar ambientes de tamaño medio y super
+                        decorativa cuando está apagada</p>
+                </div>
+            </div>
+            <div class="card col-lg-3 col-sm-12 m-3 bgcolorcss">
+                <img src="./img/vitamina.png" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title titulo_form">Aroma de vitamina C</h5>
+                    <p class="card-text">Los olores con vitamina C nos llenan de alegría, nuestro aroma favorito estos
+                        días es de una de nuestras velas, una mezcla de tres flores en una base de pomelo rosado.</p>
+                </div>
+            </div>
+            <div class="card col-lg-3 col-sm-12 m-3 bgcolorcss">
+                <img src="./img/sorpresa.jpeg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title titulo_form">Memoria</h5>
+                    <p class="card-text">Siempre es importante ejercitar nuestra memoria, en estos tiempos de cuarentena
+                        además de hacernos bien podemos pasar un buen rato en familia y amigos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <section class="container mt-3">
+            <div class="row">
+                <h2 class="titulo_form text-center">Tips para perfumar sin salir de casa</h2>
+                <p>Quizá en estos días se acabaron tus velas y aromatizantes.</p>
+
+                <div class="col-lg-5 col-sm-12">
+
+                    <h3 class="text-center">Qúe necesitas</h3>
+                    <ul>
+                        <li>3 Cucharadas de romero seco (45g)</li>
+                        <li>1 limón con cáscara</li>
+                        <li>1 taza de agua (250ml)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-sm-12">
+                    <h3 class="text-center">Preparación</h3>
+                    <ol>
+                        <li>Agrega las cucharadas de romero en una ollita </li>
+                        <li>Ponlas a hervir en el agua</li>
+                        <li>Corta el limón en rodajas, con cáscara y agregalo</li>
+                        <li>Deja hervir durante 10 minutos</li>
+                        <li>Espera que repose</li>
+                        <li>Fíltralo con un colador</li>
+                        <li>Agrégalo al rociador</li>
+                    </ol>
+
+                </div>
+            </div>
+
+
+
+        </section>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

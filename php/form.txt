@@ -1,0 +1,16 @@
+Vincular un form en html a un form de Google
+    Se crea el form de Google con el orden que tiene en tu html
+        Caso correo: Marcar obligatorio, Respuesta corta. Se marca "validación de respuesta"
+            Se indica el tipo texto, correo y el mensaje en caso de error. (Ejp: Debe ingresar un correo válido.)
+
+    Se abre el form aparte y se inspecciona cada elemento.
+        En el div con atributo jsmodel se busca el atr data-params y se copia el numero que está entre dos corchetes. 
+            (ejemplo: data-params='%.@.[1378083088,"Nombre",null,0,[[839960492,[],true,[],[],null,null,null,null,null,[null,[]]]],null,null,null,[]],"i5","i6","i7",false]') 
+            839960492 sería el codigo para ese campo
+        Este codigo se coloca en el atr name="" del input correspondiente en el form y agregando un "entry." al inicio (name="entry.839960492")
+
+    En el action del form se coloca el link del formulario de google y se cambia el "/viewport" del final por "/formResponse"
+        ( <form action="https://docs.google.com/forms/d/e/1FAIpQLSfrhbs5BnYVdqfpOxzzvZ7ZFE5upoDMQw5m92dQ-F4JkjMrhw/formResponse"
+                        method="POST">)
+
+    Y listo, ya tienes tu form del html vinculado a un form de Google.
