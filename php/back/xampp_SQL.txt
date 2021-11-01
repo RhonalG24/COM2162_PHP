@@ -1,0 +1,207 @@
+Clase 1
+
+Descarga
+https://www.apachefriends.org/es/index.html
+
+Instalacion (En linux)
+
+    Cambia los permisos al instalador
+
+        chmod 755 xampp-linux-*-installer.run
+
+    Ejecuta el instalador
+
+        sudo ./xampp-linux-*-installer.run
+
+    Eso es todo. XAMPP está ahora instalado en el directorio /opt/lampp.
+
+Para iniciar XAMPP
+
+    sudo /opt/lampp/lampp start
+
+Para parar XAMPP
+
+    sudo /opt/lampp/lampp stop
+
+Herramienta gráfica que puedes usar para controlar tus servidores fácilmente. 
+
+iniciar herramienta
+
+    cd /opt/lampp
+
+    sudo ./manager-linux.run (or manager-linux-x64.run)
+
+¡Tras reiniciar Linux, XAMPP dejó de funcionar! ¿Cómo puedo arreglarlo?
+Correcto. Es un comportamiento normal en Linux (que se aplica a cualquier otro sistema Unix). Es tarea del administrador asegurar que una aplicación en concreto se inicia durante el inicio del sistema.
+
+No hay una manera estándar de configurar el proceso de inicio de un sistema Linux, pero la mayoría de ellos deberían permitir iniciar XAMPP durante el inicio del sistema siguiendo estos pasos.
+
+Debian, Ubuntu.
+
+    sudo ln -s /opt/lampp/lampp /etc/init.d/lampp
+
+    sudo update-rc.d lampp start 80 2 3 4 5 . stop 30 0 1 6 .
+
+
+Reff:
+https://www.apachefriends.org/es/faq_linux.html
+-------------------
+Con el host corriendo [localhost (127.0.0.1)]
+
+
+
+http://localhost/phpmyadmin
+
+SQL
+nueva base de datos
+    comision2
+
+para crear una base de datos
+
+    CREATE DATABASE comision2; //termina con ;
+
+Para eliminar una base da datos
+
+    DROP DATABASE comision2; 
+
+Inicio
+    CREATE DATABASE com2162;
+
+para usar una base de datos por comandos
+
+USE com2162;
+
+y luego escrbir las consulta
+
+constrain:
+    NOT NULL, que el campo sea requerido
+    AUTO_INCREMENT, para que cada registro se sume 1. Ideal para el registro key (Registro que no debe repetirse en la tabla)
+    PRIMARY KEY, el key de la tabla
+
+Para crear tablas:
+
+CREATE TABLE alumno ( //con parentesis
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+apellido VARCHAR(20) NOT NULL,
+);
+
+Crear registro desde la interfaz
+Se selecciona la tabla y se va a insertar
+
+Se escribe en el campo Valor de la tabla
+
+Se 
+
+En comandos
+
+    INSERT INTO `alumno` (`id`, `nombre`, `apellido`) VALUES (NULL, 'Hernan', 'Caffaro');
+
+***************************************************
+Clase 2
+
+BASE DE DATOS
+Diagrama Entidad Relacion (DER)
+
+Herramienta para el modelado de datos que permite representar las entidades relevantes de un sistema de informacion asi como sus interrelaciones y propiedades
+    -Entidad: abstracion de una cosa del mundo real. Puede ser un objeto con existencia fisica o conceptual (persona, animal, materia, inscripto, pelicula, actor)
+
+    -Atributos de la Entidad: ejemplo, title y rating de movies
+    otro ejemplo
+        actors
+            firstName
+            lastName
+
+    -Claves (campos especificos de la entidad ..id unico)
+        Primary key (PK)
+            Es una key unica
+            Una PK es un campo que identifica a cada fila de una tabla de forma unica.
+            No es obligatorio pero es recomendable que cada tabla tenga su PK
+
+    -Relaciones
+        Cardinalidad: numero de entidades con la cual otra entidad puede asociarse mediante una Relacion
+        Puede ser:
+            - 1:1 uno a uno (un actor, datos personales)
+            - 1:N uno a muchos (cliente, muchas tarjetas, Una tarjeta pertenece solo a un cliente)
+            - N:M muchos a muchos (Un cliente puede comprar muchos productos, Un producto puede ser comprado por muchos clientes)
+            - 1:0-1 (una persona puede o no ser un actor.Un actor es una persona)
+            - 0-1:0-1 (Un paciente puede tener una habitacion o no. Una habitacion puede o no tener un paciente)
+
+            Ejemplo:
+                movies(N) tiene generos(N)
+                |
+                actua actores (N)
+
+
+COMETARIOS EN SQL: --
+--Esto es un comentario
+
+Creando una tabla:
+    localhost/phpmyadmin > Base de datos: com2162 > SQL
+
+    CREATE TABLE profesor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL
+    ficha INT
+    );
+
+Insertar datos
+    INSERT INTO profesor (nombre, ficha)
+    VALUES ('Pedro', 123456);
+
+    Continuar
+
+    otra forma:
+    INSERT INTO profesor
+VALUES (default, 'Juan', 65433); 
+
+Para acutalizar
+UPDATE nombreTabla
+SET camporAActualizar = nuevoValor
+WHERE condicion ;
+
+Ejemplo:
+    UPDATE profesor SET ficha = 55555 WHERE id = 2;
+Otro ejemplo:
+    UPDATE profesor SET ficha = 44444 WHERE id = 2 AND nombre = 'Juan';
+
+Para eliminar registros de la tabla
+
+DELETE FROM nombreTabla
+WHERE condicion
+
+Ejemplo
+DELETE FROM profesor WHERE id = 2 AND nombre = 'Juan';
+
+Para seleccionar un campo
+    SELECT colum1, colum2, colum3
+    FROM nombreTabla;
+
+    SELECT nombre, apellido
+    FROM alumno;
+
+    (Asi solo me trae los campos especificados, en este caso no trae el id)
+
+    otra forma
+    SELECT * FROM alumno;
+    (De esta forma trae todos los campos a la consulta)
+
+    otra
+
+    SELECT nombre, edad
+    FROM usuarios
+    WHERE edad > 17;
+
+    Usando LIKE
+    Comodines  (wildcard):
+        - % : %fuente% ..toma los registros que contenga lo que esta entre los %
+        - _ : representa un solo caracter ('_e%' ..nombre es 'De la fuente')
+    
+    Ejemplo:
+    SELECT * FROM alumno WHERE apellido LIKE '%fuente%'
+
+
+***************************************************
+---------------------------------------------------
+CRUD (Create, Read, Update, Delete)
+ABM (alta, baja, modificar)

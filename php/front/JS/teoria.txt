@@ -320,3 +320,110 @@ Clase 5 JS
                 return this.modelo + " " + this.marca + " " + this.anterior
             } 
         }
+
+Clase 6 js
+
+    DOM : Document Object Model 
+        Nos permite manipular los elementos del html con un lenguaje de programación como Javascript.
+
+        EL DOM está compuesto por nodos, de manera que se crea un arbol de nodos organizados jerarquicamente.
+
+        La mayoria de los elementos tienen dos nodos, uno para el elemento y otro para el texto que contiene.
+
+        Nodos más usados
+            Document, nodo raíz
+            Element, representa cada una de las etiquetas
+            Attr, un nodo para cada par atributo : valor del elemento
+            Text, nodo que contiente el texto encerrado dentro de la etiquetas
+            Comment, comentarios incluidos en la página HTML
+
+        Acceder a nodos:
+
+            getElementById() - se referencia al elemento por el id
+            getElementsByClassName() - se referencia a todos los elementos con la clase ingresada. Devuelve un array con todos los elemento con dicha clase
+            getElementsByTagName() - se referencia a todos los elementos con el nombre del elemento
+
+            ejemplo
+                en el HTML
+                <a href="https://www.google.com" id="linkGoogle">Ir a Google</a>
+
+                en JS
+                    let linkGoogle = document.getElementById("linkGoogle")
+
+                    Para ingresar al texto dentro del elemento se usa innerHTML. Esto obtiene el nodo de texto del elemento
+                    innerHTML - texto enriquecido con el formato HTML
+                    innerText - obtiene solo el texto
+        
+            //Obtener elementos mediante la clase
+                let elemLista = document.getElementsByClassName("elem-lista")
+                console.log(elemLista[1].innerHTML);
+
+            //Obtener elementos mediante el nombre de etiqueta
+
+                let listaLinks = document.getElementsByTagName("a")
+                console.log(listaLinks[0].innerHTML);
+
+        Obtener datos de un formulario
+
+            El dato ingresado en un input se guarda en el attr value del elemento
+
+            let formulario = document.getElementById("nombre");
+            alert(formulario.value)
+
+            Esto devuelve el valor del input con el id="nombre"
+
+        Creacion de elementos
+            1) crear el elemento
+            let elemento = document.createElement()
+
+            2) asignarle  valores
+            elemento.innerHTML("valor del elemento")
+
+            3) Añadir el nodo como hijo a otro elemento
+            elementoPadre.appendChild(elemento)
+
+        Eliminar elementos
+            removeChild() - se le pasa la referencia del nodo a eliminar
+
+            nodoPadre.removeChild(nodoHijo)
+
+            Se puede hacer mediante el mismo elemento 
+            elementoAEliminar.parentNode.removeChild(elementoAEliminar)
+
+Clase 7 js
+
+    Eventos
+
+        Accion que se realiza en un momento y lugar específico y son accionados por algo.
+
+        En JS se refiere a controlar lo que se hace en la página según las acciones del usuario.
+
+        Cómo funciona?
+
+            Se utilizan manejadores de eventos (eventHandlers). Se asocia una función a un elemento y el manejador llama a la funcion dependiendo de una acción.
+
+        Sintaxis
+
+            <input type="button" value="Clickea el boton" onclick="alert('Mensaje en el click');" />
+
+            tambien podrias acceder al atributo con JS
+        
+            document.getElementById("nombre").onchange = mostrarAlert;
+            
+
+            Otra sintaxis
+
+            addEventListener("<evento>", <nombreFuncion>)
+
+            ejemplo:
+
+                document.getElementById("nombre").addEventListener("click", mostrarAlerta)
+
+            Eventos del teclado
+
+                onkeypress
+                onkeydown
+                onkeyup
+
+            (*eventwich está obsoleto*)
+            Se usa el event.keyCode ( https://keycode.info/ )
