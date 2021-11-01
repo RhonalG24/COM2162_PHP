@@ -104,3 +104,121 @@ git status
 git commit -m "message"
 git pull origin main
 git push -u origin master -f
+
+-------------------
+
+gitignrore
+
+En el gitignore se especificarán todas las rutas y archivos que no se requieren y con ello, el proceso de control de versiones simplemente ignorará esos archivos.
+
+	Implementacion
+	
+	Simplemente tienes que crear un archivo que se llama ".gitignore" en la carpeta raíz de tu proyecto. 
+
+	Dentro del archivo .gitignore colocarás texto plano, con todas las carpetas que quieres que Git simplemente ignore, así como los archivos.
+
+ 		Por ejemplo, si indicamos la línea
+
+			bower_components/
+
+		Estamos evitando que se procese en el control de versiones todo el contenido de la carpeta "bower_components".
+	 
+		Si colocamos la siguiente línea:
+
+			*.DS_Store
+
+		Estaremos evitando que el sistema de control de versiones procese todos los archivos acabados de .DS_Store,
+		----
+		# Código gitignore para evitar procesar los directorios de las dependencias
+
+		node_modules
+
+		jspm_packages
+		----
+Existe una herramienta online llamada gitignore.io. Básicamente permite escribir en un campo de búsqueda los nombres de todas las herramientas, sistemas, frameworks, lenguajes, etc. que puedas estar usando. Seleccionas todos los valores y luego generas el archivo de manera automática.
+
+
+
+Remover archivos
+
+	git rm -r --cached node_modules
+
+Luego tendrás que hacer un commit para que esos cambios se apliquen al sistema de control de versiones.
+
+	git commit -m 'Eliminada carpeta node_modules del repo'
+
+A partir de ahora esa carpeta no se verá en tu repositorio y gracias a tu .gitignore tampoco se tendrá en cuenta en las siguientes operaciones que realices mediante Git.
+
+
+
+git tag
+
+	Numeración de las versiones
+
+	Generalmente los cambios se pueden dividir en tres niveles de "importancia": Mayor, menor y pequeño ajuste. Si tu versión de proyecto estaba en la 0.0.1 y haces un cambio que no altera la funcionalidad ni la interfaz de trabajo entonces lo adecuado es versionar tu aplicación como 0.0.2. Si el proyecto ya tiene alguna ampliación en funcionalidad, pero sigue manteniendo completa compatibilidad con la versión anterior, entonces tendremos que aumentar el número de enmedio, por ejemplo pasar de la 1.0.0 a la 1.1.0. Ahora bien, si los cambios introducidos en el proyecto son tales que impliquen una alteración sobre cómo se usará esa aplicación, haciendo que no sea completamente retrocompatible con versiones anteriores, entonces habría que aumentar en 1 la versión en su número más relevante, por ejemplo pasar de la 1.1.5 a la 2.0.0.
+
+
+	Crear un tag con Git
+		git tag v0.0.1 -m "Primera versión"
+	
+	Generalmente, después de hacer cambios en tu repositorio y subirlos al sistema (después de hacer el commit), podrás generar otro número de versión etiquetando el estado actual.
+
+		git tag v0.0.2 -m "Segunda versión, cambios menores"
+
+Ver los estados de versión en el repositorio con Git tag
+
+	Después de haber creado tu primer tag, podrás lanzar el comando "git tag", a secas, sin más parámetros, que te informará sobre las versiones que has etiquetado hasta el momento.
+
+		git tag
+
+	Otro comando interesante en el tema de versionado es "show" que te permite ver cómo estaba el repositorio en cada estado que has etiquetado anteriormente, es decir, en cada versión.
+
+		git show v0.0.2
+
+Enviar tags a GitHub
+
+	git push –tags
+
+En concreto la opción --tags, tal cual la hemos usado, envía todas las nuevas tag creadas, aunque podrías también enviar una en concreto mediante la especificación de la que quieres enviar, tal como se puede ver en el siguiente comando.
+
+	git push origin v0.0.4
+
+	En este caso debemos especificar qué repositorio remoto es el destino de las tags que acabamos de crear ("origin" en este caso)
+
+Clonar el repositorio Git
+
+	Descargar vs Clonar
+
+	Descargar el código de un repositorio descargando un simple Zip., no te permite algunas de las utilidades interesantes de clonarlo, como:
+
+	-No crea un repositorio Git en local con los cambios que el repositorio remoto ha tenido a lo largo del tiempo. Es decir, te descargas el código, pero nada más.
+
+	-No podrás luego enviar cambios al repositorio remoto, una vez los hayas realizado en local.
+
+¿Como clonar?
+
+	Te situas con la terminal en la carpeta donde deseas que se almace el repositorio que deseas clonar y lanzas el comando
+	
+	Ejemplo:
+
+		git clone https://github.com/Escuela/java-avanzado.git .
+
+Subir cambios al repositorio remoto realizados por nosotros
+
+		git push
+
+	Al clonar el repositorio en local está asociado el origen remoto desde donde lo trajiste.
+
+Cómo enviar cambios a GitHub si el repositorio no es tuyo (vía fork)
+
+	Si el repositorio que vas a modificar no es tuyo y pretendes continuar el desarrollo, agregando cambios que querrás enviar a GitHub, tendrías que clonar el repositorio de otra manera.
+
+	Primero tienes que crear un "fork". Esto es, un repositorio que es copia de otro que ya está publicado en GitHub. Lo bueno de un fork es que el repositorio será exactamente igual, pero estará en tu cuenta de GitHub, con tu usuario, por lo que tendrás permisos para hacer lo que tú quieras con él.
+
+	Hay un botón para hacer el fork en la parte de arriba de la página del repositorio. 
+
+	Una vez hecho el fork, el repositorio ya te pertenece. Entonces podrás clonar (el fork, no el repositorio original) y realizar los cambios que quieras, que podrás subir perfectamente a ti propio repositorio (tu fork). 
+
+	En la parte de arriba puedes ver que el repositorio es un fork de otro repositorio existente en GitHub.
+
+

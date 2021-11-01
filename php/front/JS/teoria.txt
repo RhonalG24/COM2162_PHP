@@ -389,3 +389,41 @@ Clase 6 js
 
             Se puede hacer mediante el mismo elemento 
             elementoAEliminar.parentNode.removeChild(elementoAEliminar)
+
+Clase 7 js
+
+    Eventos
+
+        Accion que se realiza en un momento y lugar específico y son accionados por algo.
+
+        En JS se refiere a controlar lo que se hace en la página según las acciones del usuario.
+
+        Cómo funciona?
+
+            Se utilizan manejadores de eventos (eventHandlers). Se asocia una función a un elemento y el manejador llama a la funcion dependiendo de una acción.
+
+        Sintaxis
+
+            <input type="button" value="Clickea el boton" onclick="alert('Mensaje en el click');" />
+
+            tambien podrias acceder al atributo con JS
+        
+            document.getElementById("nombre").onchange = mostrarAlert;
+            
+
+            Otra sintaxis
+
+            addEventListener("<evento>", <nombreFuncion>)
+
+            ejemplo:
+
+                document.getElementById("nombre").addEventListener("click", mostrarAlerta)
+
+            Eventos del teclado
+
+                onkeypress
+                onkeydown
+                onkeyup
+
+            (*eventwich está obsoleto*)
+            Se usa el event.keyCode ( https://keycode.info/ )
