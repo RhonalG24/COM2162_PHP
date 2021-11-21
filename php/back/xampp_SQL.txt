@@ -30,6 +30,7 @@ iniciar herramienta
     cd /opt/lampp
 
     sudo ./manager-linux.run (or manager-linux-x64.run)
+	sudo ./manager-linux-x64.run
 
 ¡Tras reiniciar Linux, XAMPP dejó de funcionar! ¿Cómo puedo arreglarlo?
 Correcto. Es un comportamiento normal en Linux (que se aplica a cualquier otro sistema Unix). Es tarea del administrador asegurar que una aplicación en concreto se inicia durante el inicio del sistema.

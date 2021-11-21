@@ -1,0 +1,356 @@
+PHP (Personal home page) nacio en 1994
+    En el 2018 se actualizo y volvio a cobrar fuerza
+
+    Corre del lado del servidor, es decir, no es interpretado por el navegador como javascript sino que es interpretado por un servidor
+
+    Se crea una carpeta en el directorio htdocs dentro de lampp
+    /opt/lampp/htdocs
+    Usa 
+    cd /opt/lampp
+    sudo ./manager-linux-64.run
+
+    para correr la pag, 
+    localhost/ejercicio1
+
+    web estaticas: no tienen una base de datos
+   Web dinamicas - dependiendo de la interaccion del usuario, el contenido de la pagina cambia
+
+    El archivo se crea con extension .php y se puede escribir como en html
+    index.php
+
+    Escribir codigo PHP dentro del html abrir una etiqueta <?php ?>
+
+    salida de datos
+    echo("Hola Codo a Codo);
+
+
+    //las sentencias terminan con ;
+    declaracion de variables
+    $nombre2_ = "Nuevo valor";
+    $numero = 28;
+    $numeroDecimal = 15.5;
+
+    Para concatenar
+    echo ("hola". $nombre2_);
+
+    php dentro de la seccion html, dado que es una web dinamica
+    <h1> <?php echo("Hola Mundo"); ?> <p>parrafo</p></h1>
+
+    Para ver la informacion de la variables
+    var_dump($numero);
+    //salida: int(28)
+
+    funcion para setear el tipo de dato de una variable
+    settype(<variable>,<"tipoDato">)
+    settype($numero, "string");
+    var_dump($numero); //salida: string(2) "28"
+
+    Condicionales
+    $semaforoEnVerde = true; 
+        if($semaforoEnVerde){
+            echo("Puede avanzar");
+        }else{
+            echo("Debe detenerse");
+        }
+//Bucles
+  $tablaDeMultiplicar = 5;
+  $i = 0;
+  while($i < 10){
+      echo($tablaDeMultiplicar . " x " . ($i+1) . " = " . $tablaDeMultiplicar*(i+1) );
+      $i++;
+  }
+
+   for($i = 0; $i < 10; $i++){
+        
+   }
+
+
+    //Include y require
+    include 
+        se usa para incrustar codigo php en un sitio
+        include("variables.php");
+
+        //dentro del include.php
+        <?php
+            $nombre = "Alejandro";
+            $edad = 30;
+        ?>
+
+        Dentro del index.php se vera lo que se hace en en los archivos pasados por el include
+
+    require
+        Funciona igual que le include pero el include es mas permisivo
+        En el caso del require, si falta un recurso no va a permitir continuar con la ejecucion del archivo padre
+
+    include_once
+        igual que el include pero se asegura de que solo se incluya una sola vez
+
+Clase 2 PHP
+    Embeber codigo 
+
+    <!-- embeber codigo -->
+
+    <?php
+    $nombre = "Juanito";
+    $edad = 18;
+    ?>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    <?php if($edad >= 18){
+        echo("<span>Bienvenido " . $nombre . "</span>" );  
+        }
+    ?>
+    <!-- otra manera, pero que puede traer problemas -->
+    <?php if($edad >=18) { ?>
+    <span>Bienvenido <?php echo($nombre);?> </span>
+    <?php } ?>
+
+    <!-- otra mejor opcion -->
+    <div id="<?=$idUser?>" ></div>
+    <?php if($edad >= 18) : ?>
+        <span>Bienvenido <?=$nombre?> </span>
+    <?php else : ?> 
+    <span>hola <?=$nombre?> No puede inscribirse con <?=$edad?> años</span>
+        <?php endif ?>
+    </body>
+    </html>
+
+    Funcion array  
+    recibe como paremetro cada elemento del array
+    $productos = array("Gabinete", "Monitor", "Teclado", "Grafica", "Mouse");
+
+
+Clase 3
+
+CRUD (create, read, update, delete) o ABM (alta, baja y modificacion)
+
+funciones
+
+function saludar(){
+    echo("Hola como estas?");
+}
+
+para invocar:
+saludar();
+
+con parametros y otra funcion dentro
+function saludar($nombre){
+    function despedir($nombre){
+        echo("Adios " .$nombre);
+    }
+    echo "Hola como estas " . $nombre;
+}
+
+saludar("Robinson");
+despedir("Robinsos");
+
+POO (programacion orientada a objetos):
+
+Permite de manera simple crear abstracciones. Crear distintas entidades y poder relacionarlas, que se comporten como objetos de la vida real.
+
+UML (lenguaje de modelado unificado): representacion grafica del software que vamos a crear. Un diagrama.
+
+Usamos draw.io > modelo de clases
+click + ctrl+D para replicar una forma
+
+Definicion de clase: representacion de una abstraccion que se va a utilizar. La idea es tratar los registros como un objeto. Por el ejemplo
+Cliente, si tengo 5 clientes, en el sistema se crean 5 objetos del tipo Cliente.
+Convencion, inician con mayuscula, en singular
+
+Un objeto tiene propiedades y responsabilidades. Estas varian dependiendo del contexto, por ejemplo, me interesan cosas distintas entre un cliente y un empleado.
+
+Ejemplo de clase
+nombre_objeto
+    nombre: <tipo_de_dato>
+    method(param : type): return type
+
+Parlante
+    marca: string
+    color: string
+    peso: int
+    precio: double
+    stock: bool
+    ----------
+    vender( cant : int ): void
+    reservar(cliente : string, cant : int ) : string
+
+Cliente
+    nroSocio : int
+    nombre : string
+    dni : int
+    telefono : int
+    correo : string
+    direccion : string
+    condFrenteIVA : string
+    afiliado : boolean
+    ---------------------
+    pagar(tipoPago, productos ) : boolean
+    devolver(venta, productos) : boolean
+
+Clase 4
+
+    
+POO
+    Se recomienda tener una clase por archivo.
+    EN UML
+    
+    Producto{
+        codDeBarra : int,
+        nombreProducto: int,
+        categoriaProducto: string,
+        proveedor: string,
+        precio: double,
+        stock: int,
+        -------------
+        actualizarPrecio(porcentCambio): double,
+        actualizarStock(diferencia): void
+        vender(cantidad): void
+    }
+
+    Las clases son una representacion de algo que se quiere modelar en el software.
+    Contienen atributos y metodos
+    Un objeto es una instancia de la clase
+
+    Modificacores de acceso: establecen el scoope de los atributos y metodos de una clase
+    Public
+    Private
+    Protected
+
+    print_r() devuelve una informacion acerca de una variable.
+
+EN el main
+    //instanciar un objeto de tipo Cliente
+require_once("Cliente.php");
+
+$cliente1 = new Cliente();
+var_dump($cliente1);
+
+metodo constructor (va entre los atributos y los metodos)
+Es un metodo que nos va a permitir instanciar un objeto con distintos paramentros, nos va a permitir usar la instruccion new. Nos va permitir crear un objeto con los valores que se le pasen por parametro.
+
+un constructor vacio (si un metodo constructor) nos permitira igual instanciar un objeto con new pero sin valores en los campos
+
+se usa __construct() es cual es una palabra clave
+
+
+Clase Jueves
+Relaciones
+Producto{
+
+}
+
+venta{
+
+}
+
+Cliente{
+
+}
+
+Clase 5
+
+Herencia: 
+    Es una relacion de tipo "es un"
+    El hijo va a heredar las caracteristicas y responsalibilidades del padre
+
+    Una clase Cliente puede heredar de la clase Persona
+        Empleado es una Persona(nombre, dni, edad)
+    Siempre debemos preguntarnos si la clase hija necesita heredar todas las propiedades de la clase padre
+    Sin embargo, el hijo tiene tambien sus propiedades propiedades propias, como Empleado(nroLegajo, antiguedad)
+
+    Las clases padre se llaman Super Clases y las clases hijas, subclases (heredad de una SuperClase)
+
+    Existe la herencia multiple (un hijo hereda de mas de un padre, gato hereda de mascota y de animal), pero no existe en PHP ni Java porque genera mas conflictos.
+    Sin embargo se puede hacer una herencia lineal, haciendo que Perro hereda de Mascota y Mascota a su vez hereda de animal
+    Animal <- Mascota <- Perro
+
+
+class Mascota
+{
+    private string $nombre;
+    private int $edad;
+    private string $raza;
+    private Duenio $duenio;
+
+
+    public function __construct(string $nombre, int $edad, string $raza, Duenio $duenio)
+    {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->raza = $raza;
+        $this->duenio = $duenio;
+    }
+
+
+    public function vacunar(): void
+    {
+        echo ("Vacunando Mascota " . $this->nombre);
+    }
+
+    public function darTratamiento(): void
+    {
+        echo ("Dando tratamiento a " . $this->nombre);
+    }
+}
+
+    Existe la sobreescritura del metodo, se refiere a sobreescrbir la funcionalidad de un metodo de la clase padre, 
+    Por ejemplo, en darTratamiento, el tratamiento puede variar entre Perro y Gato
+
+Clase 6
+    Clases abstractas   
+    EN UML <<abstract>> Mascota o <<Mascota>>
+    Pueden poseer metodos abstractos
+    Una clase abstracta no puede ser instanciada
+
+    Un metodos abstracto no tiene cuerpo, solo la firma
+
+    en UML 
+    + abstract darTratamiento(): boolean;
+
+    Cada clase hijo sobreescribira los metodos de esta clase abstracta y DEBE implementarla.
+    De esta manera no tenemos codigo innecesario en la clase Mascota 
+
+    en codigo
+abstract class Mascota
+{
+    private string $nombre;
+    private int $edad;
+    private string $raza;
+    private Duenio $duenio;
+
+
+    public function __construct(string $nombre, int $edad, string $raza, Duenio $duenio)
+    {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->raza = $raza;
+        $this->duenio = $duenio;
+    }
+
+
+    public function vacunar(): void
+    {
+        echo ("Vacunando Mascota " . $this->nombre);
+    }
+
+    public abstract function darTratamiento(): void;
+}
+
+
+Otro ejemplo: necesitamos obtener informacion sobre 
+
+protected : permite que una subclase pueda heredar un metodo privado
+
+static : para atributos propios de la clase que no pueden ser modificados por las instancias (constantes)
+
+:: Operador de resolcion de ambito. Es para acceder a los miembros estaticos de una clase (a las constantes de una clase)
+
+    Vivienda
